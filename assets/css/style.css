@@ -1,0 +1,238 @@
+/* 
+COLORS 
+gold: #e99239
+red: #b1381d
+green: #404825
+black: #010101
+pale yellow: #fcfdeb
+*/
+
+/* ------------------------------------ GENERAL */
+
+.container-fluid {
+	width: 100%;
+}
+
+.container {
+	width: 100%;
+	margin-bottom: 25px;
+	padding: 50px;
+	background-color: #fcfdeb;
+	border-radius: 25px;
+}
+
+body {
+	background-image: url("../images/hobbit-bg.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-color: #010101;
+	font-family: "Raleway", sans-serif;
+	font-size: 14px;
+	color: #010101;
+}
+
+div#controls {
+	margin-bottom: 20px;
+	padding: 15px 20px;
+	border-radius: 15px;
+}
+
+div#audiocontrols {
+	width: 100%;
+	margin-bottom: 0px;
+	padding: 15px 15px;
+	background-color: transparent;
+	color: #fcfdeb;
+	border-radius: 10px;
+}
+
+div#correctbox {
+	padding: 10px;
+	background-color: #e99239;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #ffffff;
+	border-radius: 10px;
+}
+
+div#incorrectbox {
+	padding: 10px;
+	background-color: #b1381d;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #ffffff;
+	border-radius: 10px;
+}
+
+div#remainingbox {
+	padding: 10px;
+	background-color: #404825;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #ffffff;
+	border-radius: 10px;
+}
+
+/* ------------------------------------ BUTTONS */
+
+button {
+	color: #ffffff;
+	background-color: #b1381d;
+	border: none;
+	border-radius: 10px;
+	-o-transition: 0.5s;
+  	-ms-transition: 0.5s;
+  	-moz-transition: 0.5s;
+  	-webkit-transition: 0.5s;
+  	transition: 0.5s;
+}
+
+button:hover {
+	background-color: #e99239;
+}
+
+button#startgame, button.continue {
+	margin-bottom: 25px;
+	padding-top: 15px;
+	padding-bottom: 10px;
+	width: 65%;
+	font-family: "Aguafina Script", cursive;
+	font-size: 25px;
+}
+
+button.audiobutton {
+	margin-bottom: 5px;
+	padding: 2px 5px;
+	border-radius: 5px;
+	background-color: #fcfdeb;
+	color: #010101;
+	-o-transition: 0.5s;
+  	-ms-transition: 0.5s;
+  	-moz-transition: 0.5s;
+  	-webkit-transition: 0.5s;
+  	transition: 0.5s;
+}
+
+button.audiobutton:hover {
+	background-color: #e99239;
+}
+
+button.answer {
+	width: 100%;
+	margin-bottom: 10px;
+	padding: 10px;
+	background-color: #fcfdeb;
+	border: 1px solid #010101;
+	color: #010101;
+}
+
+button.answer:last-child {
+	margin-bottom: 0px;
+}
+
+button.answer:hover {
+	background-color: #e99239;
+	color: #ffffff;
+	border: 1px solid #e99239;
+}
+
+/* ------------------------------------ IMAGES */
+
+img.responsive {
+	width: 100%;
+}
+
+img#originalheader {
+	display: none;
+}
+
+img#headerimage {
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+/* ------------------------------------ HEADERS AND TEXT */
+
+h1 {
+	margin-top: 0px;
+	margin-bottom: 25px;
+	padding-bottom: 10px;
+	font-family: "Aguafina Script", cursive;
+	font-size: 50px;
+	text-align: center;
+	border-bottom: 1px solid #010101;
+}
+
+p:last-child {
+	margin-bottom: 0px;
+}
+
+p.capstext {
+	margin-top: 0px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+p#disclaimer {
+	margin-bottom: 25px;
+	font-size: 10px;
+	text-align: center;
+	color: #ffffff;
+	border-top: 1px solid #010101;
+}
+
+span#correct, span#incorrect, span#remaining {
+	font-size: 16px;
+}
+
+/* ------------------------------------ MEDIA QUERIES */
+
+/* large devices <1200px */
+@media (max-width: 1199px) { 
+	.container-fluid {
+		width: 85%;
+	}
+	div#instructions {
+		margin-top: 100px;
+	}
+
+	div#audiocontrols {
+		margin-top: 0px;
+	}
+
+	img#headerimage {
+		margin-top: 100px;
+	}
+}
+
+/* medium devices <992px */
+@media (max-width: 991px) { 
+
+	div.container {
+		margin-top: 0px;
+	}
+
+	div#instructions {
+		margin-top: 0px;
+	}
+
+	img#originalheader {
+		display: block;
+	}
+
+	img#headerimage {
+		margin-top: 25px;
+		padding: 25px 25px 0px 25px;
+	}
+}
+
+/* small devices <768px */
+@media (max-width: 767px) { 
+	div.container-fluid {
+		width: 100%;
+	}
+}
+
+/* tiny devices < 576px */
+@media (max-width: 575px) { 
+}

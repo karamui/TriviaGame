@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+	<head>
+		<title>The Hobbit Trivia Game</title>
+		<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico"/>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- FONTS -->
+		<link href="https://fonts.googleapis.com/css?family=Aguafina+Script" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="row"> <!-- audio -->
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> <!-- audio -->
+					<audio id="intromusic" src="assets/audio/adventurebegins.mp3"></audio>
+					<audio id="gamemusic" src="assets/audio/oldfriends.mp3"></audio>
+					<audio id="correctsound" src="assets/audio/correct.wav"></audio>
+					<audio id="incorrectsound" src="assets/audio/incorrect.wav"></audio>
+				</div> <!-- audio column -->
+			</div> <!-- audio row -->
+
+			<div class="row"> <!-- header image for small layouts -->
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-0"> <!-- header image for smaller layouts -->
+					<img class="img-responsive" id="originalheader" src="assets/images/hobbit-bg-original.jpg" alt="background"/>
+				</div> <!-- header column -->
+			</div> <!-- header row -->
+
+			<div class="row"> <!-- audio controls -->
+				<div class="container" id="audiocontrols">
+					<div class="col-xs-0 col-sm-0 col-md-0 col-lg-0 spacer"></div> <!-- spacer -->
+
+					<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"> <!-- audio controls -->
+						<button class="audiobutton" id="play"><span class="glyphicon glyphicon-play"></span></button>
+						<button class="audiobutton" id="pause"><span class="glyphicon glyphicon-pause"></span></button>
+						<button class="audiobutton" id="refresh"><span class="glyphicon glyphicon-refresh"></span></button>
+						<button class="audiobutton" id="softer"><span class="glyphicon glyphicon-volume-down"></span></button>
+						<button class="audiobutton" id="louder"><span class="glyphicon glyphicon-volume-up"></span></button>
+						<p class="capstext">Audio Controls</p>
+					</div> <!-- audio controls column -->
+				</div> <!-- controls container -->
+
+				<div class="col-xs-0 col-sm-0 col-md-8 col-lg-8 spacer"></div> <!-- spacer -->
+			</div> <!-- audio controls row -->
+
+
+			<div class="row"> <!-- logo -->
+				<div class="col-xs-0 col-sm-0 col-md-6 col-lg-6 spacer"></div> <!-- spacer -->
+				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-5"> <!-- logo -->
+					<img class="img-responsive" id="headerimage" src="assets/images/hobbit-header.png" alt="The Hobbit Trivia Game"/>
+				</div> <!-- logo column -->
+				<div class="col-xs-0 col-sm-0 col-md-0 col-lg-1 spacer"></div> <!-- spacer -->
+			</div> <!-- logo row -->
+			
+			<div class="row"> <!-- page -->
+				<div class="col-xs-0 col-sm-0 col-md-0 col-lg-6 spacer"></div> <!-- spacer -->
+				
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-5"> <!-- main content -->
+					<div class="container fade1" id="instructions">
+						<div class="row"> <!-- instructions -->
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> <!-- instructions -->
+								<h1>Instructions</h1>
+								<p><b>Click the button to begin The Hobbit Trivia Game.</b></p>
+								<p>All questions will be related to the film trilogy <i>The Hobbit</i>. You will have <b>thirty seconds to select an answer</b> to each question, after which the correct answer will be revealed.</p> 
+								<p>Answering correctly will earn you one point, while answering incorrectly or not at all will earn you zero points. Your final score will be shown at the end of the game. <b>GOOD LUCK!</b></p>
+							</div> <!-- instructions column -->
+						</div> <!-- instructions row -->
+					</div> <!-- instructions container -->
+
+					<div class="row fade1"> <!-- start button -->
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"> <!-- start button -->
+							<button id="startgame">Begin Your Adventure</button>
+						</div> <!-- start button column -->
+					</div> <!-- start button row -->
+
+					<div class="container fade2" id="controls">
+						<div class="row"> <!-- controls -->
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> <!-- controls -->
+								<div class="row" id="counters"> <!-- questions counter -->
+									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center"> <!-- correct -->
+										<div id="correctbox">Correct : <span id="correct">0</span></div>
+									</div> <!-- correct column -->
+
+									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center"> <!-- incorrect -->
+										<div id="incorrectbox">Incorrect : <span id="incorrect">0</span></div>							
+									</div> <!-- incorrect column -->
+
+									<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 text-center"> <!-- remaining -->
+										<div id="remainingbox">Time Remaining : <span id="remaining">30</span></div>								
+									</div> <!-- remaining column -->
+								</div> <!-- questions counter row -->
+							</div> <!-- controls column -->
+						</div> <!-- controls row -->
+					</div> <!-- controls container -->
+
+					<div class="container fade2 questionbox fade3">
+						<div class="row" id="question1"> <!-- question 1 -->
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> <!-- question 1 -->
+								<h1>Question One</h1>
+								<p class="qtext">blah blah blah</p>
+								<button class="answer" value="correct">first answer</button><br>
+								<button class="answer" value="incorrect">second answer</button><br>
+								<button class="answer" value="incorrect">third answer</button>
+							</div> <!-- question 1 column -->
+						</div> <!-- question 1 row -->
+
+						<div class="row answerbox fade3" id="answer1"> <!-- answer 1 -->
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> <!-- answer 1 -->
+								<h1><span id="result"></span></h1>
+								<p class="qtext">The correct answer is...</p>
+							</div> <!-- answer 1 column -->
+						</div> <!-- answer 1 row -->
+					</div> <!-- question 1 container -->
+
+					<div class="row answerbox fade3"> <!-- continue button -->
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"> <!-- continue button -->
+								<button class="continue">Continue</button>
+							</div> <!-- continue button column -->
+						</div> <!-- continue button row -->
+
+					<div class="row fade1"> <!-- footer -->
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> <!-- footer -->
+							<footer><p id="disclaimer">All characters, images, and titles are trademarks&trade; or registered trademarks&reg; of their respective holders.<br>Use of them does not imply any affiliation with or endorsement by them.</p></footer>
+						</div> <!-- footer column -->
+					</div> <!-- footer row -->
+				</div> <!-- main content column -->
+				
+				<div class="col-xs-0 col-sm-0 col-md-0 col-lg-1 spacer"></div> <!-- spacer -->
+			</div> <!-- page row -->	
+		</div> <!-- container-fluid -->
+		
+		<!-- JAVASCRIPT AND JQUERY -->
+		<script src="https://code.jquery.com/jquery.js"></script>
+		<script src="assets/javascript/app.js"></script>
+	</body>
+</html>	
+
