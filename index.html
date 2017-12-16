@@ -52,7 +52,6 @@
 				<div class="col-xs-0 col-sm-0 col-md-8 col-lg-8 spacer"></div> <!-- spacer -->
 			</div> <!-- audio controls row -->
 
-
 			<div class="row"> <!-- logo -->
 				<div class="col-xs-0 col-sm-0 col-md-6 col-lg-6 spacer"></div> <!-- spacer -->
 				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-5"> <!-- logo -->
@@ -82,7 +81,7 @@
 						</div> <!-- start button column -->
 					</div> <!-- start button row -->
 
-					<div class="container fade2" id="controls">
+					<div class="container" id="controls">
 						<div class="row"> <!-- controls -->
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> <!-- controls -->
 								<div class="row" id="counters"> <!-- questions counter -->
@@ -102,30 +101,32 @@
 						</div> <!-- controls row -->
 					</div> <!-- controls container -->
 
-					<div class="container fade2 questionbox fade3">
-						<div class="row" id="question1"> <!-- question 1 -->
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> <!-- question 1 -->
-								<h1>Question One</h1>
-								<p class="qtext">blah blah blah</p>
-								<button class="answer" value="correct">first answer</button><br>
-								<button class="answer" value="incorrect">second answer</button><br>
-								<button class="answer" value="incorrect">third answer</button>
-							</div> <!-- question 1 column -->
-						</div> <!-- question 1 row -->
+					<div class="container questionbox"> <!-- question box -->
+						<div class="row"> <!-- question -->
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> <!-- question -->
+								<h1 id="qheader"></h1>
+								<p id="qtext"></p>
+								<button class="answer" id="answer1"></button><br>
+								<button class="answer" id="answer2"></button><br>
+								<button class="answer" id="answer3"></button>
+							</div> <!-- question column -->
+						</div> <!-- question row -->
+					</div> <!-- question box container -->
 
-						<div class="row answerbox fade3" id="answer1"> <!-- answer 1 -->
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> <!-- answer 1 -->
-								<h1><span id="result"></span></h1>
-								<p class="qtext">The correct answer is...</p>
-							</div> <!-- answer 1 column -->
-						</div> <!-- answer 1 row -->
-					</div> <!-- question 1 container -->
+					<div class="container answerbox"> <!-- answer box -->
+						<div class="row"> <!-- answer -->
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> <!-- answer -->
+								<h1 id="result"></h1>
+								<p id="atext"></p>
+							</div> <!-- answer column -->
+						</div> <!-- answer row -->
+					</div> <!-- answer box container -->
 
-					<div class="row answerbox fade3"> <!-- continue button -->
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"> <!-- continue button -->
-								<button class="continue">Continue</button>
-							</div> <!-- continue button column -->
-						</div> <!-- continue button row -->
+					<div class="row" id="restart"> <!-- restart button -->
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"> <!-- restart button -->
+								<button id="restartgame">Restart Your Adventure</button>
+							</div> <!-- restart button column -->
+						</div> <!-- restart button row -->
 
 					<div class="row fade1"> <!-- footer -->
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> <!-- footer -->
@@ -142,5 +143,4 @@
 		<script src="https://code.jquery.com/jquery.js"></script>
 		<script src="assets/javascript/app.js"></script>
 	</body>
-</html>	
-
+</html>
