@@ -1,11 +1,11 @@
-// run questions sequentially
+// run questions sequentially - currently issues with them being nested (seen in game and restart)
 
 $(document).ready(function() {
 	// hide elements
 	$("#controls").hide();
 	$(".questionbox").hide();
 	$(".answerbox").hide();
-	$("#restart").hide();
+	$(".endbox").hide();
 
 	// declaring audio variables
 	var intromusic = document.getElementById("intromusic");
@@ -16,32 +16,123 @@ $(document).ready(function() {
 	// declaring initial game variables
 	var correct = 0;
 	var incorrect = 0;
-	var remaining = 10;
+	var remaining = 30;
 	var result = "";
 	var timer = "";
 	var index = 0;
+	//var totalQ = 2; // NOTE: delete this and replace in nextQuestion with questionSelect.length - this is just for buildingand debugging purposes
 
 	// trivia questions (array of objects)
 	var questionSelect = [
 		{qheader: "Question One",
-		qtext: "First question text.",
-		answer1: "Answer one.",
+		qtext: "What is the name of the hobbit, and where does he live?",
+		answer1: "Bilbo Boggins of Bag End",
 		answer1value: "incorrect",
-		answer2: "Answer two.",
+		answer2: "Bilbo Baggins of Bag End",
 		answer2value: "correct",
-		answer3: "Answer three.",
+		answer3: "Bilbo Baggins of Bog End",
 		answer3value: "incorrect",
-		atext: "BLAH BLAH BLAH."},
+		atext: "The eponymous hobbit is named Bilbo Baggins, and he lives in Bag End.",
+		imagesource: "assets/images/bilborun.gif"},
 
 		{qheader: "Question Two",
-		qtext: "Second question text.",
-		answer1: "Answer one.",
+		qtext: "Who was the first dwarf to arrive at Bilbo's smial?",
+		answer1: "Dwalin",
 		answer1value: "correct",
-		answer2: "Answer two.",
+		answer2: "Balin",
 		answer2value: "incorrect",
-		answer3: "Answer three.",
+		answer3: "Thorin",
 		answer3value: "incorrect",
-		atext: "BLAH."}
+		atext: "Dwalin was the first dwarf to arrive at Bilbo's smial.",
+		imagesource: "assets/images/dwalincookie.gif"},
+
+		{qheader: "Question Three",
+		qtext: "Why is Bilbo invited on an adventure?",
+		answer1: "Gandalf is allergic to dwarves.",
+		answer1value: "incorrect",
+		answer2: "Thorin believes a party of fourteen will be unlucky.",
+		answer2value: "incorrect",
+		answer3: "Smaug is unfamiliar with the scent of hobbits.",
+		answer3value: "correct",
+		atext: "Smaug is unfamiliar with the scent of hobbits, so Gandalf believes that Bilbo will be able to pass unnoticed in Erebor.",
+		imagesource: "assets/images/bilbonope.gif"},
+
+		{qheader: "Question Four",
+		qtext: "How did Gandalf acquire the map and key he presents to Thorin?",
+		answer1: "He received them from Thrain.",
+		answer1value: "correct",
+		answer2: "He received them from Thror.",
+		answer2value: "incorrect",
+		answer3: "He's a wizard, so obviously magic was involved.",
+		answer3value: "incorrect",
+		atext: "Gandalf received the map and key from Thrain, Thorin's father.",
+		imagesource: "assets/images/map.gif"},
+
+		{qheader: "Question Five",
+		qtext: "What are the names of the trolls who are turned to stone?",
+		answer1: "Bill, Burt, and Tim",
+		answer1value: "incorrect",
+		answer2: "Bill, Bert, and Tom",
+		answer2value: "correct",
+		answer3: "Bill, Burt, and Tom",
+		answer3value: "incorrect",
+		atext: "Bill, Bert, and Tom are the trolls who attempt to eat Bilbo and the dwarves.",
+		imagesource: "assets/images/trolls.gif"},
+
+		{qheader: "Question Six",
+		qtext: "All of the following characters appear in the films (and not the book) except for...",
+		answer1: "Elrond",
+		answer1value: "correct",
+		answer2: "Galadriel",
+		answer2value: "incorrect",
+		answer3: "Legolas",
+		answer3value: "incorrect",
+		atext: "Elrond appears in both the book and films.",
+		imagesource: "assets/images/elrond.gif"},
+
+		{qheader: "Question Seven",
+		qtext: "Solve the riddle: 'Voiceless it cries / Wingless flutters/ Toothless bites / Mouthless mutters.'",
+		answer1: "A river",
+		answer1value: "incorrect",
+		answer2: "The cold",
+		answer2value: "incorrect",
+		answer3: "The wind",
+		answer3value: "correct",
+		atext: "'The wind' is the answer to this riddle posed by Gollum.",
+		imagesource: "assets/images/gollum.gif"},
+
+		{qheader: "Question Eight",
+		qtext: "Which of the following is not one of Gandalf's official titles?",
+		answer1: "Mithrandir",
+		answer1value: "incorrect",
+		answer2: "The Grey Pilgrim",
+		answer2value: "incorrect",
+		answer3: "Disturber of the Peace",
+		answer3value: "correct",
+		atext: "In the Lord of the Rings movies, the hobbits of the Shire have unofficially declared Gandalf a 'Disturber of the Peace,' but this is not one of his official titles.",
+		imagesource: "assets/images/gandalf.gif"},
+
+		{qheader: "Question Nine",
+		qtext: "Thranduil rides an elk in the films. What is the actor actually riding?",
+		answer1: "A horse named Moose.",
+		answer1value: "correct",
+		answer2: "A moose named Horse.",
+		answer2value: "incorrect",
+		answer3: "Nothing - the animal is pure CGI.",
+		answer3value: "incorrect",
+		atext: "Lee Pace, the actor who plays Thranduil, is riding a horse named Moose.",
+		imagesource: "assets/images/moose.gif"},
+
+		{qheader: "Question Ten",
+		qtext: "Which of the following actors from The Hobbit films has not previously acted as Sherlock Holmes?",
+		answer1: "Sir Ian McKellen",
+		answer1value: "incorrect",
+		answer2: "Benedict Cumberbun",
+		answer2value: "correct",
+		answer3: "Sir Christopher Lee",
+		answer3value: "incorrect",
+		atext: "Benedict CumberBUN is not an actor in The Hobbit films. That would be Benedict CumberBATCH, who voiced Smaug and also previously acted as Sherlock Holmes in the 2010 BBC television series.",
+		imagesource: "assets/images/benedict.gif"}
 	];
 
 	// play intro music on startup
@@ -66,15 +157,10 @@ $(document).ready(function() {
 		$("#gamemusic").prop("volume", 0);
 		setTimeout("gamemusic.play();", 3000);
 		$("#gamemusic").animate({volume: 0.5}, 3500);
-
-		//executeAsynchronously([question(0), question(1)]);	
 		
-		//var indexTimer = setInterval("index = index + 1; console.log(index);", 17499);
-		//var runGame = setInterval(question(index), 17500);
-		
-		question(0);
-		//setTimeout(question(0), 1000);
-		//setTimeout(question(1), 10000);
+		// run game
+		question(index);
+		selectAnswer();
 	});
 
 	// audio controls
@@ -128,18 +214,36 @@ $(document).ready(function() {
 		}
 	}
 
-	// REFERENCE: https://stackoverflow.com/questions/5187968/how-should-i-call-3-functions-in-order-to-execute-them-one-after-the-other
-	function executeAsynchronously(functions) {
-  		for (var i = 0; i < functions.length; i++) {
-    		setTimeout(functions[i], 17500);
-  		}
+	// end the game and reset variables
+	function endGame() {
+		updateScreen();
+		$(".answerbox").fadeOut(1500);
+		$(".endbox").delay(1500).fadeIn(1500);
+
+		// reset variables begin new game
+		$("#restartgame").on("click", function() {
+			$(".endbox").fadeOut(1500);
+			correct = 0;
+			incorrect = 0;
+			remaining = 30;
+			result = "";
+			timer = "";
+			index = 0;
+			question(index);
+		});
 	}
 
 	// prepare to load next question
 	function nextQuestion() {
 		$(".answerbox").fadeOut(1500);
-		remaining = 10;
+		remaining = 30;
 		index++;
+
+		if (index == questionSelect.length) {
+			endGame();
+		} else {
+			question(index);
+		}
 	}
 
 	// question logic
@@ -147,38 +251,7 @@ $(document).ready(function() {
 		timer = setInterval(countDown, 1000);
 		$(".questionbox").delay(1500).fadeIn(1500);
 
-		questionText(X);
-
-		// user selects an answer
-		$(".answer").one("click", function() {
-			var userAnswer = $(this).val();
-			$(".questionbox").fadeOut(1000);
-			$(".answerbox").delay(1000).fadeIn(1000);
-
-			if (userAnswer == "correct") {
-				correct++;
-				result = "Correct!"
-				correctsound.play();
-				$("#atext").text(questionSelect[X].atext);
-				clearInterval(timer);
-				updateScreen();
-				setTimeout(nextQuestion, 5000);
-			} else if (userAnswer == "incorrect") {
-				incorrect++;
-				result = "Incorrect!"
-				incorrectsound.play();
-				$("#atext").text(questionSelect[X].atext);
-				clearInterval(timer);
-				updateScreen();
-				setTimeout(nextQuestion, 5000);
-			} else {
-				alert("Oops! Looks like you misclicked! Please try again.");
-			}
-		}); 
-	}
-
-	// push questions and answers to page
-	function questionText(X) {
+		// update question and answer text and apply values to answers
 		$("#qheader").text(questionSelect[X].qheader);
 		$("#qtext").text(questionSelect[X].qtext);
 		$("#answer1").text(questionSelect[X].answer1);
@@ -191,10 +264,40 @@ $(document).ready(function() {
 
 	// update counters
 	function updateScreen() {
-		$("#correct").text(correct);
-		$("#incorrect").text(incorrect);
-		$("#remaining").text(remaining);
+		$(".correct").text(correct);
+		$(".incorrect").text(incorrect);
+		$(".remaining").text(remaining);
 		$("#result").text(result);
+	}
+
+	function selectAnswer() {
+		// user selects an answer
+		$(".answer").on("click", function() {
+			var userAnswer = $(this).val();
+			$(".questionbox").fadeOut(1000);
+			$("#answerpic").removeAttr("src").attr("src", questionSelect[index].imagesource);
+			$(".answerbox").delay(1000).fadeIn(1000);
+
+			if (userAnswer == "correct") {
+				correct++;
+				result = "Correct!"
+				correctsound.play();
+				$("#atext").text(questionSelect[index].atext);
+				clearInterval(timer);
+				updateScreen();
+				setTimeout(nextQuestion, 5000);
+			} else if (userAnswer == "incorrect") {
+				incorrect++;
+				result = "Incorrect!"
+				incorrectsound.play();
+				$("#atext").text(questionSelect[index].atext);
+				clearInterval(timer);
+				updateScreen();
+				setTimeout(nextQuestion, 5000);
+			} else {
+				alert("Oops! Looks like you misclicked! Please try again.");
+			}
+		}); 
 	}
 
 }); 

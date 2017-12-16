@@ -151,6 +151,11 @@ img#headerimage {
 	margin-bottom: 25px;
 }
 
+img#answerpic {
+	width: 100%;
+	margin-top: 25px;
+}
+
 /* ------------------------------------ HEADERS AND TEXT */
 
 h1 {

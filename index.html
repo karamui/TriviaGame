@@ -86,15 +86,15 @@
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> <!-- controls -->
 								<div class="row" id="counters"> <!-- questions counter -->
 									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center"> <!-- correct -->
-										<div id="correctbox">Correct : <span id="correct">0</span></div>
+										<div id="correctbox">Correct : <span class="correct">0</span></div>
 									</div> <!-- correct column -->
 
 									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center"> <!-- incorrect -->
-										<div id="incorrectbox">Incorrect : <span id="incorrect">0</span></div>							
+										<div id="incorrectbox">Incorrect : <span class="incorrect">0</span></div>							
 									</div> <!-- incorrect column -->
 
 									<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 text-center"> <!-- remaining -->
-										<div id="remainingbox">Time Remaining : <span id="remaining">30</span></div>								
+										<div id="remainingbox">Time Remaining : <span class="remaining">30</span></div>								
 									</div> <!-- remaining column -->
 								</div> <!-- questions counter row -->
 							</div> <!-- controls column -->
@@ -103,7 +103,7 @@
 
 					<div class="container questionbox"> <!-- question box -->
 						<div class="row"> <!-- question -->
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> <!-- question -->
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"> <!-- question -->
 								<h1 id="qheader"></h1>
 								<p id="qtext"></p>
 								<button class="answer" id="answer1"></button><br>
@@ -115,14 +115,34 @@
 
 					<div class="container answerbox"> <!-- answer box -->
 						<div class="row"> <!-- answer -->
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> <!-- answer -->
-								<h1 id="result"></h1>
-								<p id="atext"></p>
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"> <!-- answer -->
+								<div class="row">
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"> <!-- answer -->
+										<h1 id="result"></h1>
+										<p id="atext"></p>
+									</div>
+								</div>
+							<div class="row">
+								<div class="col-xs-0 col-sm-0 col-md-3 col-lg-12 spacer"></div>
+								<div class="col-xs-12 col-sm-12 col-md-6 col-lg-12 text-center"> <!-- answer -->
+									<img class="img-responsive" id="answerpic" src="assets/images/bilborun.gif" alt="answerpic" align="middle"/>
+								</div>
+								<div class="col-xs-0 col-sm-0 col-md-3 col-lg-12 spacer"></div>
+							</div>
 							</div> <!-- answer column -->
 						</div> <!-- answer row -->
 					</div> <!-- answer box container -->
 
-					<div class="row" id="restart"> <!-- restart button -->
+					<div class="container endbox"> <!-- end box -->
+						<div class="row"> <!-- end screen -->
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> <!-- end screen -->
+								<h1>Game Over!</h1>
+								<p>You answered <span class="correct"></span> questions correctly and <span class="incorrect"></span> questions incorrectly (or not at all). Would you like to play again?</p>
+							</div> <!-- end screen column -->
+						</div> <!-- end screen row -->
+					</div> <!-- end box container -->					
+
+					<div class="row endbox" id="restart"> <!-- restart button -->
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"> <!-- restart button -->
 								<button id="restartgame">Restart Your Adventure</button>
 							</div> <!-- restart button column -->
