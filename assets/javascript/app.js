@@ -1,5 +1,3 @@
-// run questions sequentially - currently issues with them being nested (seen in game and restart)
-
 $(document).ready(function() {
 	// hide elements
 	$("#controls").hide();
@@ -20,8 +18,8 @@ $(document).ready(function() {
 	var result = "";
 	var timer = "";
 	var index = 0;
-	//var totalQ = 2; // NOTE: delete this and replace in nextQuestion with questionSelect.length - this is just for buildingand debugging purposes
-
+	var finalscore = 0;
+	
 	// trivia questions (array of objects)
 	var questionSelect = [
 		{qheader: "Question One",
@@ -229,6 +227,7 @@ $(document).ready(function() {
 			result = "";
 			timer = "";
 			index = 0;
+			finalscore = 0;
 			question(index);
 		});
 	}
@@ -268,6 +267,9 @@ $(document).ready(function() {
 		$(".incorrect").text(incorrect);
 		$(".remaining").text(remaining);
 		$("#result").text(result);
+
+		finalscore = correct * 5;
+		$("#finalscore").text(finalscore);
 	}
 
 	function selectAnswer() {
