@@ -301,5 +301,4 @@ $(document).ready(function() {
 			}
 		}); 
 	}
-
 }); 
